@@ -329,8 +329,17 @@ function Addon:onPlayerLoaded(keys)
 		--ply:Slide(true) -- Эффект скольжения
 		--ply:SetSlideMultiplier(5)
 	elseif D2MODDIN then
-		ply = CreateHeroForPlayer('npc_dota_hero_mirana', ply)
-		table.insert(self.Players,ply)
+		local found = false
+		for i=1,#self.Players do
+			if self.Players[i] == ply then
+				found = true
+				break
+			end
+		end
+		if not found then
+			ply = CreateHeroForPlayer('npc_dota_hero_mirana', ply)
+			table.insert(self.Players,ply)
+		end
 	end
 	
 	if self.isEntSpawned == false then
