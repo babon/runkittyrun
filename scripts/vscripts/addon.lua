@@ -34,8 +34,6 @@ function Addon:InitGameMode()
 
 	--Addon:FixPrecache()
 	print(PREFIX..'Done precaching!') 
-	GameMode = GameRules:GetGameMode()
-	GameMode:SetFogOfWarDisabled(true)
 	print(PREFIX..'DONE INITIALIZATION!\n\n')
 end
 
@@ -315,6 +313,11 @@ end
 
 function Addon:onPlayerLoaded(keys)
 
+	if GameMode == nil then
+		GameMode = GameRules:GetGameMode()
+		GameMode:SetFogOfWarDisabled(true)
+	end
+	
 	local ply = EntIndexToHScript(keys.index+1)
 	local playerID = ply:GetPlayerID()
 
