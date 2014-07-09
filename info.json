@@ -13,12 +13,12 @@
   "isPublic": true,
   "name": "runkittyrun",
   "playable": true,
-  "spreadimage": "http://i.imgur.com/OT1SA5u.jpg",
+  "spreadimage": "http://i.imgur.com/IbTKXCv.jpg",
   "spreadvideo": null,
   "subtitle": "Navigate through deadly creeps.",
   "thumbnail": "http://i.imgur.com/jthJPmQ.png",
   "thumbsmall": "http://i.imgur.com/sD5G1TU.png",
-  "version": "0.01.00",
+  "version": "0.01.01",
   "website": "http://steamcommunity.com/groups/runkittyrun",
   "disableGG": true
 }
