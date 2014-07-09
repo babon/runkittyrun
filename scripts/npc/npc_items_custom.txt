@@ -1,4 +1,4 @@
-﻿"DOTAAbilities"
+"DOTAAbilities"
 {
 
 	"item_kittyrun_goldbag"
