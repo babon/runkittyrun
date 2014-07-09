@@ -1,4 +1,0 @@
-{
-  "name": "Run Kitty Run",
-  "version": "0.01"
-}
