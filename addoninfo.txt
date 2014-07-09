@@ -1,0 +1,15 @@
+// The addoninfo.txt file is a metadata file that is required by all Source Engine Add-ons.
+
+"AddonInfo"
+{
+     addonSteamAppID         816
+     addontitle              "Run kitty run"
+     addonversion            0.01
+     addontagline            "Legendary map from warcraft3 now in dota!"
+     addonauthor             "Babon"
+     addonSteamGroupName     ""                                                
+     addonauthorSteamID      ""
+     addonContent_Campaign   0
+     addonURL0               ""
+     addonDescription        "Legendary map from warcraft3 now in dota!"
+}
