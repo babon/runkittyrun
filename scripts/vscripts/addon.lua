@@ -314,7 +314,7 @@ end
 function Addon:onPlayerLoaded(keys)
 
 	if GameMode == nil then
-		GameMode = GameRules:GetGameMode()
+		GameMode = GameRules:GetGameModeEntity()
 		GameMode:SetFogOfWarDisabled(true)
 	end
 	
@@ -416,5 +416,8 @@ function Addon:onGameStateChanged()
 		for k, ply in pairs(self.Players) do
 			ply:AddNewModifier(ply,nil,'modifier_rooted',{ duration = 5 })
 		end
+		SendToServerConsole('sv_cheats 1')
+		SendToServerConsole('dota_dev forcegamestart')
+		SendToServerConsole('sv_cheats 0')
 	end
 end

@@ -1,4 +1,4 @@
-"DOTAAbilities"
+﻿"DOTAAbilities"
 {
 
 	"item_kittyrun_goldbag"
@@ -74,7 +74,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"0"
+		"SideShop"						"1"
 
 		"MaxUpgradeLevel"				"4"
 		//"ItemBaseLevel"					"1"
@@ -131,7 +131,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"0"
+		"SideShop"						"1"
 
 		"MaxUpgradeLevel"				"4"
 		//"ItemBaseLevel"					"1"
@@ -193,7 +193,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"0"
+		"SideShop"						"1"
 
 		"MaxUpgradeLevel"				"4"
 		//"ItemBaseLevel"					"1"
