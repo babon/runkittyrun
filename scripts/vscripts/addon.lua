@@ -34,7 +34,8 @@ function Addon:InitGameMode()
 
 	--Addon:FixPrecache()
 	print(PREFIX..'Done precaching!') 
-	GameRules:GetGameMode():GameMode:SetFogOfWarDisabled(true)
+	GameMode = GameRules:GetGameMode()
+	GameMode:SetFogOfWarDisabled(true)
 	print(PREFIX..'DONE INITIALIZATION!\n\n')
 end
 
