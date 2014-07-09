@@ -1,24 +1,24 @@
 {
-  "_id": "q5CCThdN5qjFMY9yx",
-  "author": "babon",
-  "authorimage": null,
-  "bundle": "runkittyrun.zip",
-  "description": "Navigate through deadly creeps.",
-  "features": [
-	"Classic WC3 map re-incarnated in Dota 2!",
+  _id: "q5CCThdN5qjFMY9yx",
+  author: "babon",
+  authorimage: null,
+  bundle: "runkittyrun.zip",
+  description: "Navigate through deadly creeps.",
+  features: [
+    "Classic WC3 map re-incarnated in Dota 2!",
     "Carefully navigate the map to avoid creeps!",
     "Rescue your teammates and work together!"
   ],
-  "fullname": "Run Kitty Run",
-  "isPublic": true,
-  "name": "runkittyrun",
-  "playable": true,
-  "spreadimage": "http://i.imgur.com/IbTKXCv.jpg",
-  "spreadvideo": null,
-  "subtitle": "Navigate through deadly creeps.",
-  "thumbnail": "http://i.imgur.com/jthJPmQ.png",
-  "thumbsmall": "http://i.imgur.com/sD5G1TU.png",
-  "version": "0.01.01",
-  "website": "http://steamcommunity.com/groups/runkittyrun",
-  "disableGG": true
+  fullname: "Run Kitty Run",
+  isPublic: true,
+  name: "runkittyrun",
+  playable: true,
+  spreadimage: "http://i.imgur.com/IbTKXCv.jpg",
+  spreadvideo: null,
+  subtitle: "Navigate through deadly creeps.",
+  thumbnail: "http://i.imgur.com/jthJPmQ.png",
+  thumbsmall: "http://i.imgur.com/sD5G1TU.png",
+  version: "0.01.02",
+  website: "http://steamcommunity.com/groups/runkittyrun",
+  disableGG: true
 }
