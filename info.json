@@ -1,6 +1,6 @@
 {
   _id: "q5CCThdN5qjFMY9yx",
-  author: "babon",
+  author: "babon & Epitaque",
   authorimage: null,
   bundle: "runkittyrun.zip",
   description: "Navigate through deadly creeps.",
@@ -18,7 +18,7 @@
   subtitle: "Navigate through deadly creeps.",
   thumbnail: "http://i.imgur.com/jthJPmQ.png",
   thumbsmall: "http://i.imgur.com/sD5G1TU.png",
-  version: "0.01.02",
+  version: "0.01.03",
   website: "http://steamcommunity.com/groups/runkittyrun",
   disableGG: true
 }
