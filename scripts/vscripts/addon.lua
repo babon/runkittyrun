@@ -114,7 +114,7 @@ function Addon:GetItemByName( hero, name, lvl )
       local lname = item:GetAbilityName()
       --print ( string.format ('[REFLEX] item slot %d: %s', i, lname) )
       if lname == name then
-		if item:GetLevel() == lvl or lvl == 0 then
+		if (item:GetLevel() == lvl) or (lvl == 0) then
 			return item
 		end
       end
@@ -233,8 +233,8 @@ function Addon:Loop()
 	if PeopleStunned == #self.Players then
 		ROUNDS = ROUNDS - 1
 		if ROUNDS == 0 then -- Game is fully losed
-			Say(nil,COLOR_RED..'All kitties are dead, kitties loose the full game!',false)
-			Addon:ShowCenterMessage('All kitties are dead, kitties loose the full game! :(',4)
+			Say(nil,COLOR_RED..'All kitties are dead, kitties lose the game!',false)
+			Addon:ShowCenterMessage('All kitties are dead, kitties lose the game! :(',4)
 			GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
 			self.StopThink = true
 		else -- Round loosed
