@@ -130,7 +130,7 @@ end
 function Addon:SpawnSomeEntities()
 	local ents = Entities:FindAllByName('wolf')
 	for k, v in pairs(ents) do
-		local wolf = CreateUnitByName('npc_dota_lycan_wolf_kitty', v:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_GOODGUYS)
+		local wolf = CreateUnitByName('npc_dota_lycan_wolf_kitty', v:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_NOTEAM)
 		wolf:AddNewModifier(ply,nil,'modifier_invulnerable',{})
 		self.WolfHome[wolf] = v:GetAbsOrigin()
 	end
