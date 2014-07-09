@@ -1,6 +1,8 @@
 --USE_LOBBY = false -- d2modd.in himself distributes players on teams, sooo if you testing addon at local dota - set this to false
 PREFIX = '[RunKittyRun] ' -- prefix that shows in console messages, pls use >>print(PREFIX..text)<<
 
+D2MODDIN = true
+
 ROUNDS = 3
 GameMode = nil -- dont touch :)
 
@@ -326,6 +328,9 @@ function Addon:onPlayerLoaded(keys)
 		--Physics:Unit(ply)
 		--ply:Slide(true) -- Эффект скольжения
 		--ply:SetSlideMultiplier(5)
+	elseif D2MODDIN then
+		ply = CreateHeroForPlayer('npc_dota_hero_mirana', ply)
+		table.insert(self.Players,ply)
 	end
 	
 	if self.isEntSpawned == false then
