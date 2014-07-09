@@ -2,5 +2,5 @@
 {
      addonSteamAppID         816
      addontitle              "Run kitty run"
-     addonversion            0.01.03
+     addonversion            0.01.04
 }
