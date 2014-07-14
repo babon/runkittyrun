@@ -1,7 +1,7 @@
 --USE_LOBBY = false -- d2modd.in himself distributes players on teams, sooo if you testing addon at local dota - set this to false
 PREFIX = '[RunKittyRun] ' -- prefix that shows in console messages, pls use >>print(PREFIX..text)<<
 
-D2MODDIN = true
+D2MODDIN = false
 
 ROUNDS = 3
 GameMode = nil -- dont touch :)
@@ -157,7 +157,8 @@ end
 function Addon:onEnable() -- This function called when mod is initializing
 
 		-- Variables
-	self.Players = {}
+	self.Players = {} -- Mirana's list
+	self.PlayersEnts = {} -- Player's list
 	self.NicknameUserId = {}
 	self.Nickname = {}
 	self.UntouchTime = {}
@@ -258,7 +259,6 @@ function Addon:Loop()
 
 	if self.Countdown == 10 then -- Every second | Random moving
 		local ents = Entities:FindAllByClassname('npc_dota_creep_neutral')
-		--local testUnit = CreateUnitByName('npc_dota_lycan_wolf_kitty', Vector(999999,999999,999999), false, nil, nil, DOTA_TEAM_GOODGUYS)
 		for k, v in pairs(ents) do
 			if RandomInt(1,3) == 2 then
 				local vec = v:GetAbsOrigin()
@@ -289,7 +289,6 @@ function Addon:Loop()
 				end
 			end
 		end
-		--testUnit:Remove()
 		self.Countdown = 0
 		
 		-- Music
@@ -324,27 +323,22 @@ function Addon:onPlayerLoaded(keys)
 	if PlayerResource:IsBroadcaster(playerID) then -- Spectating suck, play yourself
 		return
 	end
-	
-	-- If player connecting at first time
-	if playerID == -1 then
+
+	if not D2MODDIN then
 		ply:SetTeam(DOTA_TEAM_GOODGUYS)
+	end
+	
+	local found = false
+	for i=1,#self.PlayersEnts do
+		if self.PlayersEnts[i] == ply then
+			found = true
+			break
+		end
+	end
+	if not found then
+		table.insert(self.PlayersEnts,ply)
 		ply = CreateHeroForPlayer('npc_dota_hero_mirana', ply)
 		table.insert(self.Players,ply)
-		--Physics:Unit(ply)
-		--ply:Slide(true) -- Эффект скольжения
-		--ply:SetSlideMultiplier(5)
-	elseif D2MODDIN then
-		local found = false
-		for i=1,#self.Players do
-			if self.Players[i] == ply then
-				found = true
-				break
-			end
-		end
-		if not found then
-			ply = CreateHeroForPlayer('npc_dota_hero_mirana', ply)
-			table.insert(self.Players,ply)
-		end
 	end
 	
 	if self.isEntSpawned == false then
@@ -412,12 +406,14 @@ function Addon:onItemPurchased(keys)
 end
 
 function Addon:onGameStateChanged()
-	if GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME then
+	if GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME then -- All players is loaded
 		for k, ply in pairs(self.Players) do
 			ply:AddNewModifier(ply,nil,'modifier_rooted',{ duration = 5 })
+			ply:MoveToPosition(Vector(481,-1220,1175)) -- Anti afk
 		end
 		SendToServerConsole('sv_cheats 1')
 		SendToServerConsole('dota_dev forcegamestart')
 		SendToServerConsole('sv_cheats 0')
+		Addon:ShowCenterMessage( 'Everyone report "'..GetNick( self.Players[ math.random(#self.Players) ] )..'" or you gay)))' ,3)
 	end
 end

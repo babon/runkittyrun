@@ -11,7 +11,7 @@
 		"SoundSet"					"Lycan_Wolf"
 		"Level"						"1"
 		"IsSummoned"				"1"
-		"ModelScale" 					"1.5"
+		"ModelScale" 					"1.2"
 		"UnitLabel"			"lycan_wolf"
 
 		// Abilities
@@ -90,6 +90,7 @@
 			"soundfile"					"scripts/game_sounds_heroes/game_sounds_mirana.txt"
 			"soundfile"					"scripts/game_sounds_heroes/game_sounds_lycan.txt"
 			"soundfile"					"scripts/game_sounds_heroes/game_sounds_rubick.txt"
+			"soundfile"					"scripts/game_sounds_heroes/game_sounds_crystal_maiden.txt"
 		}
 	}
 }

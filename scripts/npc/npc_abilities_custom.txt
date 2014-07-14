@@ -22,7 +22,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"5.0"
+		"AbilityCooldown"				"1"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -39,12 +39,6 @@
 				"Target"				"TARGET"
 				"ScriptFile"			"scripts/vscripts/addon.lua"
 				"Function"				"retrieveKittySpell"
-			}
-			
-			"FireSound"
-			{
-				"EffectName"			"hero_Crystal.freezingField.explosion"
-				"Target"				"CASTER"
 			}
 		}
 

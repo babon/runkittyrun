@@ -5,6 +5,7 @@
 	{
 		"AbilityLayout" 		"6"
 		"override_hero"			"npc_dota_hero_mirana"
+		"ModelScale" 			"0.5"
 		"SoundSet"				"Hero_Mirana"	
 		"Ability1"				"retreive_kittyrun"
 		"Ability2"				"reflex_empty2"
@@ -39,9 +40,9 @@
 		"MovementSpeed"				"360"									// Speed.
 		"MovementTurnRate"			"2.0"									// Turning rate.
 
-		"StatusHealth"				"1000"									// Base health.
+		"StatusHealth"				"1318"									// Base health.
 		"StatusHealthRegen"			"0.0"									// Health regeneration rate.
-		"StatusMana"				"1"										// Base mana.
+		"StatusMana"				"215"										// Base mana.
 		"StatusManaRegen"			"0"									// Mana regeneration rate.
 
 		"VisionNighttimeRange"		"9999999"									// Range of vision at night time.

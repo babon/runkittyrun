@@ -1,13 +1,13 @@
 {
   _id: "q5CCThdN5qjFMY9yx",
-  author: "babon & Epitaque",
+  author: "Babon & Epitaque",
   authorimage: null,
   bundle: "runkittyrun.zip",
   description: "Navigate through deadly creeps.",
   features: [
     "Classic WC3 map re-incarnated in Dota 2!",
-    "Carefully navigate the map to avoid creeps!",
-    "Rescue your teammates and work together!"
+    "Carefully navigate the map to avoid angry wolfes!",
+    "Rescue your teammates and work together :3"
   ],
   fullname: "Run Kitty Run",
   isPublic: true,
@@ -15,10 +15,10 @@
   playable: true,
   spreadimage: "http://i.imgur.com/IbTKXCv.jpg",
   spreadvideo: null,
-  subtitle: "Navigate through deadly creeps.",
+  subtitle: "Navigate through angry wolfes!",
   thumbnail: "http://i.imgur.com/jthJPmQ.png",
   thumbsmall: "http://i.imgur.com/sD5G1TU.png",
-  version: "0.01.07",
-  website: "http://steamcommunity.com/groups/runkittyrun",
+  version: "0.01.08",
+  website: "http://steamcommunity.com/profiles/76561197995273950/",
   disableGG: true
 }
