@@ -1,7 +1,7 @@
 --USE_LOBBY = false -- d2modd.in himself distributes players on teams, sooo if you testing addon at local dota - set this to false
 PREFIX = '[RunKittyRun] ' -- prefix that shows in console messages, pls use >>print(PREFIX..text)<<
 
-D2MODDIN = false
+D2MODDIN = true
 
 ROUNDS = 3
 GameMode = nil -- dont touch :)
