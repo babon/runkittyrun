@@ -1,8 +1,6 @@
 --USE_LOBBY = false -- d2modd.in himself distributes players on teams, sooo if you testing addon at local dota - set this to false
 PREFIX = '[RunKittyRun] ' -- prefix that shows in console messages, pls use >>print(PREFIX..text)<<
 
-D2MODDIN = true
-
 ROUNDS = 3
 GameMode = nil -- dont touch :)
 
@@ -193,7 +191,7 @@ function Addon:onEnable() -- This function called when mod is initializing
 	PrecacheUnitByName('npc_precache_everything')
 	print(PREFIX..'Everything precached!')
 
-	Convars:RegisterCommand('fake', function()
+	--[[Convars:RegisterCommand('fake', function()
       -- Create fake Players
       SendToServerConsole('dota_create_fake_clients')
         
@@ -213,7 +211,7 @@ function Addon:onEnable() -- This function called when mod is initializing
               end
             end
           end
-  end, 'Connects and assigns fake Players.', 0)
+  end, 'Connects and assigns fake Players.', 0)--]]
 end
 
 function Addon:Loop()
