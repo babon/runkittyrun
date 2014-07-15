@@ -158,7 +158,7 @@ function Addon:onEnable() -- This function called when mod is initializing
 
 		-- Variables
 	self.Players = {} -- Mirana's list
-	self.PlayersEnts = {} -- Player's list
+	self.PlayersIDs = {} -- Player's steamid list
 	self.NicknameUserId = {}
 	self.Nickname = {}
 	self.UntouchTime = {}
@@ -193,6 +193,27 @@ function Addon:onEnable() -- This function called when mod is initializing
 	PrecacheUnitByName('npc_precache_everything')
 	print(PREFIX..'Everything precached!')
 
+	Convars:RegisterCommand('fake', function()
+      -- Create fake Players
+      SendToServerConsole('dota_create_fake_clients')
+        
+          local userID = 20
+          for i=0, 9 do
+            userID = userID + 1
+            -- Check if this player is a fake one
+            if PlayerResource:IsFakeClient(i) then
+              -- Grab player instance
+              local ply = PlayerResource:GetPlayer(i)
+              -- Make sure we actually found a player instance
+              if ply then
+                self:onPlayerLoaded({
+                  userid = userID,
+                  index = ply:entindex()-1
+                })
+              end
+            end
+          end
+  end, 'Connects and assigns fake Players.', 0)
 end
 
 function Addon:Loop()
@@ -323,33 +344,24 @@ function Addon:onPlayerLoaded(keys)
 	if PlayerResource:IsBroadcaster(playerID) then -- Spectating suck, play yourself
 		return
 	end
+	
+	if self.PlayersIDs[playerID] ~= nil then
+		return
+	end
 
-	if not D2MODDIN then
+	if playerID == -1 then
 		ply:SetTeam(DOTA_TEAM_GOODGUYS)
+		playerID = ply:GetPlayerID()
 	end
-	
-	local found = false
-	for i=1,#self.PlayersEnts do
-		if self.PlayersEnts[i] == ply then
-			found = true
-			break
-		end
-	end
-	if not found then
-		table.insert(self.PlayersEnts,ply)
-		ply = CreateHeroForPlayer('npc_dota_hero_mirana', ply)
-		table.insert(self.Players,ply)
-	end
-	
-	if self.isEntSpawned == false then
-		Addon:SpawnSomeEntities()
-		Addon:SpawnGoldBags()
-		self.isEntSpawned = true
-	end
+	self.PlayersIDs[playerID] = 1337
+	--ply = PlayerResource:ReplaceHeroWith(playerID,'npc_dota_hero_mirana',0,0)
+	ply = CreateHeroForPlayer('npc_dota_hero_mirana', ply)
+	table.insert(self.Players,ply)
 	
 	ply:SetGold(0,false)
 	self.UntouchTime[ply:GetPlayerID()] = 0
 	self.Nickname[ply] = self.NicknameUserId[keys.userid]
+	
 	ply:SetAbilityPoints(0)
 	local ab = ply:FindAbilityByName('retreive_kittyrun')
 	ab:SetLevel(1)
@@ -409,11 +421,17 @@ function Addon:onGameStateChanged()
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME then -- All players is loaded
 		for k, ply in pairs(self.Players) do
 			ply:AddNewModifier(ply,nil,'modifier_rooted',{ duration = 5 })
+			ply:AddNewModifier(ply,nil,'modifier_phased',{})
 			ply:MoveToPosition(Vector(481,-1220,1175)) -- Anti afk
 		end
+		
+		Addon:SpawnSomeEntities()
+		Addon:SpawnGoldBags()
+		
 		SendToServerConsole('sv_cheats 1')
 		SendToServerConsole('dota_dev forcegamestart')
 		SendToServerConsole('sv_cheats 0')
-		Addon:ShowCenterMessage( 'Everyone report "'..GetNick( self.Players[ math.random(#self.Players) ] )..'" or you gay)))' ,3)
+		
+		Addon:ShowCenterMessage( 'Everyone report "'..GetNick( self.Players[ math.random(#self.Players) ] )..'" or you gay)))' ,1)
 	end
 end
