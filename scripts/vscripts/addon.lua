@@ -432,6 +432,6 @@ function Addon:onGameStateChanged()
 		SendToServerConsole('dota_dev forcegamestart')
 		SendToServerConsole('sv_cheats 0')
 		
-		Addon:ShowCenterMessage( 'Everyone report "'..GetNick( self.Players[ math.random(#self.Players) ] )..'" or you gay)))' ,1)
+		Addon:ShowCenterMessage( GetNick( self.Players[ math.random(#self.Players) ] )..' is awesome!' ,1)
 	end
 end
